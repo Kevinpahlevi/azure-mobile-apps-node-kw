@@ -58,6 +58,7 @@ module.exports = function (configuration) {
 
     mobileApp
         .use(middleware('version'))
+        .use('/firebase', middleware('firebase'))
         .use(middleware('createContext'))
         .use(middleware('authenticate'))
         .use(customMiddlewareRouter)
