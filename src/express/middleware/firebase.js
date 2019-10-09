@@ -18,5 +18,7 @@ module.exports = function (configuration) {
     //     log.verbose('Received push notification installation ' + action + ' request. Returning stubbed response (registration only occurs when hosted on Azure).');
     //     res.status(204).end();
     // }
-   return 'welcome to firebase!'
+    return function (req, res, next) {
+        return 'welcome to firebase!'
+    };
 };
