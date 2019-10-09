@@ -57,14 +57,14 @@ module.exports = function (configuration) {
         mobileApp.use('/status', middleware('status'));
 
     mobileApp
-        .use('/version-info',middleware('version'))
+        .use(middleware('version'))
         .use(middleware('createContext'))
         .use(middleware('authenticate'))
         .use(customMiddlewareRouter)
         .use(configuration.notificationRootPath || '/push/installations', middleware('notifications'))
         .use(configuration.apiRootPath || '/api', apiMiddleware)
         .use(configuration.tableRootPath || '/tables', middleware('apiVersionCheck'), tableMiddleware, middleware('renderResults'));
-        // .use('/firebase', middleware('firebase'))
+        .use(middleware('firebase'))
 
     if(configuration.homePage)
         mobileApp.use('/', express.static(__dirname + '/../templates/static'));
