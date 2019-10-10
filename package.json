@@ -8,7 +8,7 @@
   "repository": "Azure/azure-mobile-apps-node",
   "license": "MIT",
   "scripts": {
-    "test": "npm run lint && mocha",
+    "test": "mocha",
     "lint": "jshint src",
     "jsdoc": "jsdoc -c jsdoc/config.json",
     "testCI": "mocha --timeout 10000",
