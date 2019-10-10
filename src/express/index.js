@@ -64,7 +64,9 @@ module.exports = function (configuration) {
         .use(configuration.notificationRootPath || '/push/installations', middleware('notifications'))
         .use(configuration.apiRootPath || '/api', apiMiddleware)
         .use(configuration.tableRootPath || '/tables', middleware('apiVersionCheck'), tableMiddleware, middleware('renderResults'));
-        .use(middleware('firebase'))
+
+    // firebase
+    mobileApp.use('/firebase',middleware('firebase'));
 
     if(configuration.homePage)
         mobileApp.use('/', express.static(__dirname + '/../templates/static'));

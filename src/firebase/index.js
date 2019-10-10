@@ -3,6 +3,11 @@ var admin = require('firebase-admin')
 //INSTANCE
 var firebase
 
+// GET INSTANCE
+function getClient(){
+  return firebase
+}
+
 // CONFIG-FIREBASE-CLOUD
 function Config (serviceAccount, databaseURL) {
   try {
@@ -10,6 +15,7 @@ function Config (serviceAccount, databaseURL) {
       credential: admin.credential.cert(serviceAccount),
       databaseURL
     })
+    console.log('Config Firebase Done')
   } catch (Error) {
     console.log('ERROR CONFIG : ', Error)
   }
