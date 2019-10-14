@@ -1,5 +1,5 @@
 --full-trace
 --check-leaks
 --globals __core-js_shared__
---timeout 5000
+--timeout 20000
 

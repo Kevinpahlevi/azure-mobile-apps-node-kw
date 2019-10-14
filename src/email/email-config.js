@@ -1,4 +1,3 @@
-var config = require('config')
 
 var mail = {
   host: 'smtp.googlemail.com', // Gmail Host
@@ -13,8 +12,23 @@ var mail = {
 var text = {
   from: 'roy.parawali@gmail.com', // sender address
   to: 'kevinplevi@gmail.com', // list of receivers
-  subject: 'Subject of your email', // Subject line
-  text: 'FROM API!' // plain text body
+  subject: 'Send Email Text', // Subject line
+  text: 'Send email text', // plain text body,
+}
+
+var attach = {
+  from: 'roy.parawali@gmail.com', // sender address
+  to: 'kevinplevi@gmail.com', // list of receivers
+  subject: 'Send email attachments', // Subject line
+  text: 'Send email attachments', // plain text body,
+  attachments: [{   // utf-8 string as an attachment
+    filename: 'text1.txt',
+    content: 'hello world!'
+  },
+  {
+    path:  __dirname + '/template.html'
+  }
+  ]
 }
 
 var template = {
@@ -23,7 +37,7 @@ var template = {
   subject: 'Subject of your email', // Subject line
   text: 'FROM API! with template', // plain text body
   // eslint-disable-next-line no-path-concat
-  templateDir: __dirname + '/src/email/template.html',
+  templateDir: __dirname + '/template.html',
   templateValue: { name: 'KEVIN' }
 }
 
@@ -37,4 +51,4 @@ var templateError = {
   templateValue: { name: 'KEVIN' }
 }
 
-module.exports = { mail, text, template, templateError }
+module.exports = { mail, text, template, templateError, attach }

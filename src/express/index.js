@@ -68,6 +68,10 @@ module.exports = function (configuration) {
     // firebase
     mobileApp.use('/firebase',middleware('firebase'));
 
+    //email
+    mobileApp.use('/mail',middleware('email'))
+
+
     if(configuration.homePage)
         mobileApp.use('/', express.static(__dirname + '/../templates/static'));
 
