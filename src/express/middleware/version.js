@@ -13,9 +13,7 @@ Create a new instance of the version middleware
 module.exports = function(configuration) {
     return function (req, res, next) {
         if(configuration.version) {
-            res.set('x-zumo-server-version', configuration.version);
-            console.log('x-zumo-server-version', configuration.version);
-            
+            res.set('x-zumo-server-version', configuration.version);            
         }
         next();
     };

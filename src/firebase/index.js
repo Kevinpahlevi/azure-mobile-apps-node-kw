@@ -11,11 +11,13 @@ function getClient(){
 // CONFIG-FIREBASE-CLOUD
 function Config (serviceAccount, databaseURL) {
   try {
+    if (!admin.apps.length) {
     firebase = admin.initializeApp({
       credential: admin.credential.cert(serviceAccount),
       databaseURL
-    })
-    console.log('Config Firebase Done')
+    }, 'TEST')
+    console.log('Config Firebase Done', firebase.name)
+  }
   } catch (Error) {
     console.log('ERROR CONFIG : ', Error)
   }

@@ -15,7 +15,7 @@ module.exports = function (configuration) {
 
    // ROUTER
    router.route('/send').post(send);
-   router.route('/sendtemp').post(sendtemp);
+//    router.route('/sendtemp').post(sendtemp);
 
    
 
