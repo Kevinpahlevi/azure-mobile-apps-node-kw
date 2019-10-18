@@ -4,6 +4,7 @@
 const { expect } = require('chai')
 const Mail = require('../../../src/email')
 const emailConfig = require('../../../src/email/email-config')
+const temp = require('../../../src/email/email.send')
 
 let server
 describe('email.smtp', async () => {
@@ -21,9 +22,9 @@ describe('email.smtp', async () => {
     console.log(data.accepted.length)
   })
 
-//   it('send email template', async () => {
-//     const data = await Mail.SendWithTemplate(emailConfig.template)
-//     console.log(data)
-//   })
+  it('send email template', async () => {
+    const data = await Mail.SendWithTemplate(temp,'kplv <kevinplevi@gmail.com>',{ name: 'KEVIN' })
+    console.log(data.accepted.length)
+  })
 
 })

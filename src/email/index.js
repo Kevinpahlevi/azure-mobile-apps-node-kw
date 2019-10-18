@@ -15,20 +15,20 @@ function Config (params) {
 }
 
 // SEND-MAIL-WITH-TEMPLATE
-function SendWithTemplate (params) {
-  const { data } = ejs.renderFile(params.templateDir, params.templateValue)
+function SendWithTemplate (temp, target, value) {
+  const data  = ejs.render(temp.template, value)
   var mainOptions = {
-    from: params.from, // sender address
-    to: params.to, // list of receivers
-    subject: params.subject, // Subject line
-    text: params.text, // plain text body
+    from: temp.sender, // sender address
+    replyTo: temp.replyTo, // list of receivers
+    subject: temp.subject, 
+    to: target, // list of receivers,
     html: data
   }
   const response = transporter.sendMail(mainOptions)
   return response
 }
 
-// SEND-MAIL-WITH-TEMPLATE
+// SEND-MAIL
 async function Send (mainOptions) {
   // console.log("html data ======================>", mainOptions.html);
   const data = await transporter.sendMail(mainOptions)

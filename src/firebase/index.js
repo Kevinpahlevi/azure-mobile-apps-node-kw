@@ -15,7 +15,7 @@ function Config (serviceAccount, databaseURL) {
     firebase = admin.initializeApp({
       credential: admin.credential.cert(serviceAccount),
       databaseURL
-    }, 'TEST')
+    })
     console.log('Config Firebase Done', firebase.name)
   }
   } catch (Error) {

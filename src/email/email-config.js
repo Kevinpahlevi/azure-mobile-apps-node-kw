@@ -17,7 +17,7 @@ var text = {
 }
 
 var attach = {
-  from: 'roy.parawali@gmail.com', // sender address
+  from: 'replytest@gmail.com', // sender address
   to: 'kevinplevi@gmail.com', // list of receivers
   subject: 'Send email attachments', // Subject line
   text: 'Send email attachments', // plain text body,
